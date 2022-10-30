@@ -1,0 +1,84 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int somatorio_produtorio();
+
+
+int main()
+{
+    int numero,r;
+
+    do
+    {
+        printf("1- Somatorio\n");
+        printf("2- Produtorio\n");
+        scanf("%d", &numero);
+        if (numero == 1 || numero == 2){
+        somatorio_produtorio;
+        r = somatorio_produtorio(numero);
+        printf("%d\n", r);}
+    }
+    while(numero < 1 || numero > 2 );
+
+
+
+    do
+    {
+       r = 0;
+        printf("1- Somatorio\n");
+        printf("2- Produtorio\n");
+        printf("3- Sair\n");
+        scanf("%d", &numero);
+        if (numero == 1 || numero == 2){
+        somatorio_produtorio;
+        r = somatorio_produtorio(numero);
+        printf("%d\n", r); }
+
+
+
+
+    }
+    while(numero!=3);
+
+    return 0;
+}
+
+int somatorio_produtorio(int numero)
+{
+    int  s, p, resultado;
+
+
+    switch (numero)
+    {
+    case 1:
+        resultado = 0;
+        do
+        {
+            printf("informe um numero:");
+            scanf("%d", &s);
+            resultado += s;
+
+        }
+        while(s != 0);
+
+        break;
+    case 2:
+        resultado = 1;
+        do
+        {
+            printf("informe um numero:");
+            scanf("%d", &p);
+            if ( p > 0 )
+            {
+                resultado *=  p;
+
+            }
+        }
+        while(p != 0);
+
+        break;
+
+
+
+}
+return resultado;}

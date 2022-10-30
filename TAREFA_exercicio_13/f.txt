@@ -1,0 +1,7 @@
+.social a imag{
+winth 72
+opacity .5
+}
+
+.socials a img: hover{
+width: 120px;}

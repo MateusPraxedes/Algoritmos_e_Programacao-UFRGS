@@ -1,0 +1,6 @@
+void mostra (time_t *t) {
+
+      printf("Time:%s \n ", t->time);
+      
+      
+      

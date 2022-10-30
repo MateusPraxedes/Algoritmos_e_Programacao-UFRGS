@@ -1,0 +1,37 @@
+#include <stdio.h>
+#include <math.h>
+#include<stdlib.h>
+#include <string.h>
+#define MAXIMO 100
+int main()
+{
+    char texto[MAXIMO];
+    char c;
+    char resultado[MAXIMO];
+    int flag;
+    int len;
+    int i,j;
+    printf("informe o string:");
+    fgets(texto,MAXIMO,stdin);
+    texto[strlen(texto)-1]='\0';
+    resultado[strlen(resultado)-1]='\0';
+    printf("informe s caracter a ser removido : ");
+    c=getchar();
+    i=0;
+    j=0;
+    while(texto[i]!='\0')
+    {
+        if(texto[i]!=c)
+        {
+            resultado[j]=texto[i];
+            j++;
+        }
+
+        i++;
+    }
+    resultado[j]=texto[i];
+    printf("%s", resultado);
+    printf("A string original sem o caracter <%c> eh: %s\n",c,resultado);
+
+    return 0;
+}

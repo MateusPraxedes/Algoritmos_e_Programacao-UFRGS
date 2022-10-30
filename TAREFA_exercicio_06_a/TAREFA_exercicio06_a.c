@@ -1,0 +1,51 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+int main()
+{
+    int vendedores, i = 0, j = 0, k = 0, cont = 0, l = 0 ;
+    float valor_venda, media_vendedor, media_equipe, soma, total_venda[1000] = {0}, media;
+    printf("Informe o numero de vendedores: \n");
+    scanf("%d", &vendedores);
+    if(vendedores > 0 && vendedores < 1000)
+    {
+        for (i = 0; i <= vendedores-1; i++ )
+        {
+            do
+            {
+                printf("Informe o valor em reais de uma venda feita pelo vendedor <%d>:", i+1);
+                scanf("%f", &valor_venda);
+                total_venda[i] += valor_venda;
+            }
+            while(valor_venda > 0) ;
+        }
+        for(j = 0; j < vendedores; j++)
+        {
+            soma=soma+total_venda[j];
+        }
+        media = soma/vendedores;
+        printf("Cada membro da equipe vende em media: %0.2f reais.\n", media);
+        printf("Vendedores com direito a bonificacao: ");
+        for(k = 0; k < vendedores; k++)
+        {
+            if (total_venda[k]> media)
+            {
+                printf("%d ",k+1);
+            }
+        }
+        printf("\n");
+        for(l = 0; l < vendedores; l++)
+        {
+            if(total_venda[l] > media)
+            {
+                cont++;
+            }
+        }
+        printf("Um total de %d vendedor(es) deve(m) receber a bonificacao por terem vendido acima da media da equipe.", cont);
+    }
+    else
+        printf("A quantidade de vendedores tem que ser maior que 0 e menor que 1000.");
+
+    return 0;
+}

@@ -1,0 +1,221 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+void somatorio();
+
+
+
+int main()
+{
+
+    somatorio();
+       return 0;
+}
+
+void somatorio()
+{
+    int numero, s, p, i, j, resultado_soma = 0, resultado_produto = 1;
+
+    printf("1-Somatorio\n");
+    printf("2- Produto\n");
+    scanf("%d", &numero);
+
+     switch (numero)
+    {
+    case 1:
+        do
+        {
+            printf("informe um numero:");
+            scanf("%d", &s);
+            resultado_soma += s;
+            printf(" %d\n", resultado_soma);
+        }
+        while(s != 0);
+        printf(" %d\n", resultado_soma);
+        break;
+        case 2:
+         do
+    {
+        printf("informe um numero:");
+        scanf("%d", &p);
+        if ( p > 0 )
+        {
+            resultado_produto *=  p;
+            printf(" %d\n", resultado_produto);
+        }
+    }
+    while(p != 0);
+    printf(" (%d)\n", resultado_produto);
+    break;}
+}
+
+
+versao 2
+
+#include <stdio.h>
+#include <stdlib.h>
+
+void somatorio_produtorio();
+
+
+int main()
+{
+    int numero;
+
+    do
+    {
+        printf("1- Somatorio\n");
+        printf("2- Produtorio\n");
+        scanf("%d", &numero);
+        somatorio_produtorio(numero);
+        system ("cls");// Limpar a tela
+    }
+    while(numero < 1 || numero > 2 );
+    do
+    {
+
+        printf("1- Somatorio\n");
+        printf("2- Produtorio\n");
+        printf("3- Sair\n");
+        scanf("%d", &numero);
+        if(numero == 1 || numero == 2)
+            somatorio_produtorio(numero);
+        else
+            system ("cls");// Limpar a tela
+
+    }
+    while(numero!=3);
+
+    return 0;
+}
+
+void somatorio_produtorio(int numero)
+{
+    int  s, p, resultado_soma = 0, resultado_produto = 1;
+
+
+    switch (numero)
+    {
+    case 1:
+        do
+        {
+            printf("informe um numero:");
+            scanf("%d", &s);
+            resultado_soma += s;
+            printf(" %d\n", resultado_soma);
+        }
+        while(s != 0);
+        printf(" %d\n", resultado_soma);
+        break;
+    case 2:
+        do
+        {
+            printf("informe um numero:");
+            scanf("%d", &p);
+            if ( p > 0 )
+            {
+                resultado_produto *=  p;
+                printf(" %d\n", resultado_produto);
+            }
+        }
+        while(p != 0);
+        printf(" (%d)\n", resultado_produto);
+        break;
+    }
+}
+
+
+versão #3
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int somatorio_produtorio();
+
+
+int main()
+{
+    int numero,r;
+
+    do
+    {
+        printf("1- Somatorio\n");
+        printf("2- Produtorio\n");
+        scanf("%d", &numero);
+        if (numero == 1 || numero == 2){
+        somatorio_produtorio;
+        r = somatorio_produtorio(numero);
+        printf("%d\n", r);}
+    }
+    while(numero < 1 || numero > 2 );
+
+
+
+    do
+    {
+       r = 0;
+        printf("1- Somatorio\n");
+        printf("2- Produtorio\n");
+        printf("3- Sair\n");
+        scanf("%d", &numero);
+        if (numero == 1 || numero == 2){
+        somatorio_produtorio;
+        r = somatorio_produtorio(numero);
+        printf("%d\n", r); }
+
+
+
+
+    }
+    while(numero!=3);
+
+    return 0;
+}
+
+int somatorio_produtorio(int numero)
+{
+    int  s, p, resultado;
+
+
+    switch (numero)
+    {
+    case 1:
+        resultado = 0;
+        do
+        {
+            printf("informe um numero:");
+            scanf("%d", &s);
+            resultado += s;
+
+        }
+        while(s != 0);
+
+        break;
+    case 2:
+        resultado = 1;
+        do
+        {
+            printf("informe um numero:");
+            scanf("%d", &p);
+            if ( p > 0 )
+            {
+                resultado *=  p;
+
+            }
+        }
+        while(p != 0);
+
+        break;
+
+
+
+}
+return resultado;}
+
+
+
+
+
+
+
+

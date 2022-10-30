@@ -1,0 +1,66 @@
+#include <stdio.h>
+#include <stdio.h>
+#include <string.h>
+#define MAX 50
+#define CONTAS "contas.bin"
+typedef struct
+{
+    int numero;
+    char nome[40];
+    float saldo;
+} conta_t;
+
+
+
+int main()
+{
+    conta_t contas[MAX] = {0};
+    conta_t contas_salvas[MAX] = {0};
+    
+    int i = 0, n, j = 0;
+    int max = MAX;
+
+
+    do{
+       printf("Informe o numero da conta: ");
+       scanf("%d", &contas[i].numero);
+       fgetc(stdin);
+       printf("Informe o nome do correntista: ");
+       fgets(contas[i].nome,40,stdin);
+       contas[i].nome[strlen(contas[i].nome)-1] = '\0';
+       printf("Informe o saldo atual da conta: ");
+       scanf("%f", &contas[i].saldo);
+       fgetc(stdin);
+       printf("Deseja informar mais um conta? [1]SIM  [2]NAO: ");
+       scanf("%d", &n);
+       if (n == 1)
+        {
+          i++;
+        }
+        else if(n != 2)
+            printf("\nOpcao invalida\n", n);
+    }
+
+     while(n!=2);
+
+     printf("\nSalvei %d contas!\n", i+1);
+
+
+    for (j = 0 ; j <= i; j++)
+    {
+       printf("-----------------------------\n");
+       printf("contas[%d].numero = %d\ncontas[%d].nome = %s\ncontas[%d].saldo = %f\n", j,contas[j].numero,j,contas[j].nome,j,contas[j].saldo);
+        printf("-----------------------------\n");
+
+
+     }
+
+     FILE *arquivo = fopen(CONTAS, "w");
+     if (arquivo) {
+     fwrite(&max, sizeof(int), 1, arquivo);
+     fwrite(&contas, sizeof(conta_t), i, arquivo);
+     fclose(arquivo);
+     }else{
+     printf("Imposs�vel de abrir arquivo [%s]. Fatal.\n", CONTAS);
+     
+}
